@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "inventory-search",
+	"version": "${version}",
+	"name": "inventory-search",
+	"description": "Search inventory GUIs for specified items",
+	"authors": [
+		"CheezitEater2135853"
+	],
+	"contact": {
+		"homepage": "https://github.com/kyle-98",
+		"sources": "https://github.com/kyle-98/inventory-search"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/inventory-search/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"com.poggers.InventorySearch"
+		]
+	},
+	"mixins": [
+		"inventory-search.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21.3",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
