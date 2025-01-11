@@ -2,10 +2,10 @@
 	"schemaVersion": 1,
 	"id": "inventory-search",
 	"version": "${version}",
-	"name": "inventory-search",
-	"description": "Search inventory GUIs for specified items",
+	"name": "Inventory Search",
+	"description": "Search inventory and storage GUIs for specified items",
 	"authors": [
-		"CheezitEater2135853"
+		"FaunaFan1274832"
 	],
 	"contact": {
 		"homepage": "https://github.com/kyle-98",
@@ -13,10 +13,13 @@
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/inventory-search/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"client": [
 			"com.poggers.InventorySearch"
+		],
+		"modmenu": [
+			"com.poggers.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
@@ -26,9 +29,7 @@
 		"fabricloader": ">=0.16.9",
 		"minecraft": "~1.21.3",
 		"java": ">=21",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
+		"fabric-api": "*",
+		"cloth-config": ">=16.0.0"
 	}
 }

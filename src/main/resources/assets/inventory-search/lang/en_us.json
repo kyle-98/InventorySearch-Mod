@@ -1,0 +1,5 @@
+{
+    "text.autoconfig.inventory-search.title": "Inventory Search Settings",
+    "text.autoconfig.inventory-search.option.iSSettings.HIGHLIGHT_COLOR": "Item Found Highlight Color",
+    "text.autoconfig.inventory-search.option.iSSettings.STAY_ENABLED": "Should search persist through GUI change"
+}
