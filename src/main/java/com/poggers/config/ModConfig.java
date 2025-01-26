@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.poggers.utils.NotifyPlayer;
+import com.poggers.utils.ReloadWorld;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigData;
