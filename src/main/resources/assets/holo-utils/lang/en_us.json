@@ -1,0 +1,16 @@
+{
+    "text.autoconfig.holo-utils.title": "Holo Utils Settings",
+
+    "text.autoconfig.holo-utils.category.inventorySearchSettings": "Inventory Search Settings",
+    "text.autoconfig.holo-utils.category.visualSettings": "Visual Settings",
+    "text.autoconfig.holo-utils.category.xray": "Xray Settings",
+    "text.autoconfig.holo-utils.option.iSSettings.HIGHLIGHT_COLOR": "Highlight color",
+    "text.autoconfig.holo-utils.option.iSSettings.STAY_ENABLED": "Persist between inventories",
+    "text.autoconfig.holo-utils.option.visualSettings.removeFogEverywhere": "Remove fog",
+    "text.autoconfig.holo-utils.option.xraySettings.stringBlocks": "Whitelist blocks",
+    "text.autoconfig.holo-utils.option.xraySettings.stringBlocks.@Tooltip": "Blocks must be in the format that is shown on advanced tooltips (F3+H). Capitalization doesn't matter",
+
+    "key.holo-utils.cycleFog": "Cycle Fog Rendering",
+    "key.holo-utils.fullBright": "Toggle Fullbright",
+    "key.holo-utils.xray": "Toggle Xray"
+}

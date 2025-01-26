@@ -1,0 +1,21 @@
+{
+	"required": true,
+	"package": "com.poggers.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"HandledScreenMixin",
+		"ScreenAccessor",
+		"HandledScreenAccessor",
+		"BackgroundRendererMixin",
+		"OverrideIllegalMixin",
+		"BlockMixin",
+		"AbstractBlockMixin",
+		"LivingEntityRendererMixin",
+		"EntityRendererMixin",
+		"MinecraftClientMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+
+}
