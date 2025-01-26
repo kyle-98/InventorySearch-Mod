@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "holo-utils",
+	"id": "inventory-search",
 	"version": "${version}",
-	"name": "Holo Utils",
-	"description": "Good utilities",
+	"name": "Inventory Search",
+	"description": "Search inventory and storage GUIs for specified items",
 	"authors": [
 		"FaunaFan1274832"
 	],
@@ -16,20 +16,20 @@
 	"environment": "client",
 	"entrypoints": {
 		"client": [
-			"com.poggers.HoloUtils"
+			"com.poggers.InventorySearch"
 		],
 		"modmenu": [
 			"com.poggers.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
-		"holo-utils.mixins.json"
+		"inventory-search.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.9",
-		"minecraft": "~1.21.1",
+		"minecraft": "~1.21.3",
 		"java": ">=21",
 		"fabric-api": "*",
-		"cloth-config": ">=15.0.140"
+		"cloth-config": ">=16.0.0"
 	}
 }
