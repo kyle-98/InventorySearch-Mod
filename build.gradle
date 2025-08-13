@@ -21,9 +21,18 @@ repositories {
 		url = "https://maven.terraformersmc.com/"
 	}
 	mavenCentral()
-    maven { url 'https://modrinth.com' }
-	maven { url "https://maven.shedaniel.me/" }
-    maven { url "https://maven.terraformersmc.com/releases/" }
+    maven {
+		name = "Modrinth"
+		url = "https://modrinth.com"
+	}
+	maven {
+		name = "Shedaniel"
+		url = "https://maven.shedaniel.me/"
+	}
+	maven {
+		name = "Terraformers Releases"
+		url = "https://maven.terraformersmc.com/releases/"
+	}
 }
 
 dependencies {
