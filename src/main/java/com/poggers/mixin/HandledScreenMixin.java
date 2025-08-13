@@ -14,7 +14,6 @@ public class HandledScreenMixin {
     @Inject(method = "keyPressed", at = @At("HEAD"), cancellable = true)
     private void onKeyPress(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
         if (InventorySearch.searchBox != null && InventorySearch.searchBox.isFocused()) {
-            //System.out.println("Key Code: " + keyCode + ", Modifiers: " + modifiers);
             if(InventorySearch.searchBox != null && InventorySearch.searchBox.isFocused()){
                 if(InventorySearch.searchBox.keyPressed(keyCode, scanCode, modifiers)){
                     cir.cancel();

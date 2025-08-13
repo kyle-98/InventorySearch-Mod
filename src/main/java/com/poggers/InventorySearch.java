@@ -87,8 +87,6 @@ public class InventorySearch implements ClientModInitializer, ModMenuApi {
 						if(config.iSSettings.getEnabledState()){
 							if (!searchBox.getText().isEmpty()) {
 								String searchText = searchBox.getText().toLowerCase();
-								System.out.println(searchText);
-	
 								Map<Slot, SlotViewWrapper> views = new HashMap<>();
 								for (Slot slot : ((HandledScreen<?>) screenArg).getScreenHandler().slots) {
 									ItemStack stack = slot.getStack();
@@ -109,8 +107,6 @@ public class InventorySearch implements ClientModInitializer, ModMenuApi {
 						else {
 							if (searchBox.isFocused() && !searchBox.getText().isEmpty()) {
 								String searchText = searchBox.getText().toLowerCase();
-								System.out.println(searchText);
-	
 								Map<Slot, SlotViewWrapper> views = new HashMap<>();
 								for (Slot slot : ((HandledScreen<?>) screenArg).getScreenHandler().slots) {
 									ItemStack stack = slot.getStack();
