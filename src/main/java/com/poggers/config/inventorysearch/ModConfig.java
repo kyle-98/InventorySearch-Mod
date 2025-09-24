@@ -1,4 +1,4 @@
-package com.poggers.config;
+package com.poggers.config.inventorysearch;
 
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
