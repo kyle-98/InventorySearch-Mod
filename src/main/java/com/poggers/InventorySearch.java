@@ -3,7 +3,7 @@ package com.poggers;
 import com.poggers.utils.ColorUtils;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.poggers.config.ModConfig;
+import com.poggers.config.inventorysearch.ModConfig;
 import com.poggers.mixin.HandledScreenAccessor;
 import com.poggers.mixin.ScreenAccessor;
 import com.terraformersmc.modmenu.api.ModMenuApi;
