@@ -1,6 +1,6 @@
 package com.poggers;
 
-import com.poggers.config.ModConfig;
+import com.poggers.config.inventorysearch.ModConfig;
 import com.poggers.mixin.ScreenAccessor;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
