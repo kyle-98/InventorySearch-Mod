@@ -19,7 +19,7 @@
 			"com.poggers.InventorySearch"
 		],
 		"modmenu": [
-			"com.poggers.config.ModMenuIntegration"
+			"com.poggers.config.inventorysearch.ModMenuIntegration"
 		]
 	},
 	"mixins": [
