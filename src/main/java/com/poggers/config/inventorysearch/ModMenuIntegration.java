@@ -1,4 +1,4 @@
-package com.poggers.config;
+package com.poggers.config.inventorysearch;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
