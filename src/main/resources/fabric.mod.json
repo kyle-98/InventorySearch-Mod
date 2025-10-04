@@ -11,7 +11,7 @@
 		"homepage": "https://github.com/kyle-98",
 		"sources": "https://github.com/kyle-98/inventory-search"
 	},
-	"license": "CC0-1.0",
+	"license": "LGPL-3.0-only",
 	"icon": "assets/inventory-search/icon.png",
 	"environment": "client",
 	"entrypoints": {
@@ -27,9 +27,9 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.8",
+		"minecraft": "~1.21.9",
 		"java": ">=21",
 		"fabric-api": "*",
-		"cloth-config": ">=19.0.147"
+		"cloth-config": ">=20.0.0"
 	}
 }
