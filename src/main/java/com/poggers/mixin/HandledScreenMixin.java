@@ -8,8 +8,17 @@ import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.*;
 import net.minecraft.client.input.KeyInput;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.LoreComponent;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.registry.Registries;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.text.Text;
+
+import java.util.Locale;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -42,15 +51,21 @@ public class HandledScreenMixin {
 
     @Inject(method = "drawSlot", at = @At("HEAD"))
     private void poggers$drawSlotHighlight(DrawContext context, Slot slot, CallbackInfo ci) {
-        if (InventorySearch.searchBox != null && !InventorySearch.searchBox.getText().isEmpty()) {
-            String searchText = InventorySearch.searchBox.getText().toLowerCase();
-            ItemStack stack = slot.getStack();
-            if (!stack.isEmpty() && stack.getName().getString().toLowerCase().contains(searchText)) {
-                int x = slot.x;
-                int y = slot.y;
+        if (InventorySearch.searchBox == null) return;
+        String searchText = InventorySearch.searchBox.getText().toLowerCase(Locale.ROOT).trim();
+        if (searchText.isEmpty()) return;
 
-                context.fill(x, y, x + 16, y + 16, ColorUtils.parseHexColor(InventorySearch.getConfig().iSSettings.getHighlightColor()));
-            }
+        ItemStack stack = slot.getStack();
+        if (stack.isEmpty()) return;
+
+        String displayName = stack.getName().getString().toLowerCase(Locale.ROOT);
+        String itemId = Registries.ITEM.getId(stack.getItem()).getPath().toLowerCase(Locale.ROOT);
+
+        if (displayName.contains(searchText) || itemId.contains(searchText)) {
+            int x = slot.x;
+            int y = slot.y;
+            context.fill(x, y, x + 16, y + 16,
+                ColorUtils.parseHexColor(InventorySearch.getConfig().iSSettings.getHighlightColor()));
         }
     }
 
