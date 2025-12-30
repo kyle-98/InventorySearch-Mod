@@ -20,6 +20,7 @@ public class InventorySearch implements ClientModInitializer, ModMenuApi {
 	public static TextFieldWidget searchBox;
 	private static ConfigHolder<ModConfig> configHolder;
 	private static String savedSearchText;
+	public ModConfig config;
 	
 
 	public static ModConfig getConfig() {
@@ -33,6 +34,7 @@ public class InventorySearch implements ClientModInitializer, ModMenuApi {
 	@Override
 	public void onInitializeClient() {
 		configHolder = AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
+		config = getConfig();
 		
 		ScreenEvents.AFTER_INIT.register((client, screen, w, h) -> {
 			if(screen instanceof GenericContainerScreen || screen instanceof InventoryScreen || screen instanceof ShulkerBoxScreen){
@@ -46,9 +48,10 @@ public class InventorySearch implements ClientModInitializer, ModMenuApi {
 				);
 
 				searchBox.setPlaceholder(Text.literal("Search..."));
-				if(savedSearchText != null){ 
+				if(savedSearchText != null && config.iSSettings.getEnabledState()){ 
 					searchBox.setText(savedSearchText);
 				}
+				
 
 				ButtonWidget clearSearchButton = ButtonWidget.builder(Text.literal("Clear Search"), button -> {
 					searchBox.setText(""); 

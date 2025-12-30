@@ -8,16 +8,9 @@ import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.*;
 import net.minecraft.client.input.KeyInput;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.LoreComponent;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.nbt.NbtList;
 import net.minecraft.registry.Registries;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.text.Text;
-
 import java.util.Locale;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -43,14 +36,14 @@ public class HandledScreenMixin {
     }
 
     @Inject(method = "mouseClicked", at = @At("HEAD"))
-    private void onMouseClick(Click click, boolean doubled,  CallbackInfoReturnable<Boolean> cir){
+    private void onMouseClick(Click click, boolean doubled, CallbackInfoReturnable<Boolean> cir){
         if (InventorySearch.searchBox != null) {
             InventorySearch.searchBox.setFocused(InventorySearch.searchBox.isMouseOver(click.x(), click.y()));
         }
     }
 
     @Inject(method = "drawSlot", at = @At("HEAD"))
-    private void poggers$drawSlotHighlight(DrawContext context, Slot slot, CallbackInfo ci) {
+    private void poggers$drawSlotHighlight(DrawContext context, Slot slot, int x, int y, CallbackInfo ci) {
         if (InventorySearch.searchBox == null) return;
         String searchText = InventorySearch.searchBox.getText().toLowerCase(Locale.ROOT).trim();
         if (searchText.isEmpty()) return;
@@ -62,9 +55,9 @@ public class HandledScreenMixin {
         String itemId = Registries.ITEM.getId(stack.getItem()).getPath().toLowerCase(Locale.ROOT);
 
         if (displayName.contains(searchText) || itemId.contains(searchText)) {
-            int x = slot.x;
-            int y = slot.y;
-            context.fill(x, y, x + 16, y + 16,
+            int slotX = slot.x;
+            int slotY = slot.y;
+            context.fill(slotX, slotY, slotX + 16, slotY + 16,
                 ColorUtils.parseHexColor(InventorySearch.getConfig().iSSettings.getHighlightColor()));
         }
     }
