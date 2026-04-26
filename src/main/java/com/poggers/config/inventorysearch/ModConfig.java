@@ -33,8 +33,5 @@ public class ModConfig implements ConfigData {
         public void setEnabledState(boolean es) {
             this.STAY_ENABLED = es;
         }
-
-        
     }
-    
 }

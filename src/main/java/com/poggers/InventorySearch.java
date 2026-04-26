@@ -2,22 +2,25 @@ package com.poggers;
 
 import com.poggers.config.inventorysearch.ModConfig;
 import com.poggers.mixin.ScreenAccessor;
+
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
+
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
-import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.gui.screen.ingame.GenericContainerScreen;
-import net.minecraft.client.gui.screen.ingame.InventoryScreen;
-import net.minecraft.client.gui.screen.ingame.ShulkerBoxScreen;
-import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.text.Text;
+
+import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.screens.inventory.ContainerScreen;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import net.minecraft.client.gui.screens.inventory.ShulkerBoxScreen;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.network.chat.Component;
 
 public class InventorySearch implements ClientModInitializer, ModMenuApi {
-	public static TextFieldWidget searchBox;
+	public static EditBox searchBox;
 	private static ConfigHolder<ModConfig> configHolder;
 	private static String savedSearchText;
 	public ModConfig config;
@@ -37,37 +40,37 @@ public class InventorySearch implements ClientModInitializer, ModMenuApi {
 		config = getConfig();
 		
 		ScreenEvents.AFTER_INIT.register((client, screen, w, h) -> {
-			if(screen instanceof GenericContainerScreen || screen instanceof InventoryScreen || screen instanceof ShulkerBoxScreen){
-				searchBox = new TextFieldWidget(
-						client.textRenderer,
+			if(screen instanceof ContainerScreen || screen instanceof InventoryScreen || screen instanceof ShulkerBoxScreen){
+				searchBox = new EditBox(
+						client.font,
 						w - 120,
 						h - 40,
 						100,
 						20,
-						Text.literal("Search...")
+						Component.literal("Search...")
 				);
 
-				searchBox.setPlaceholder(Text.literal("Search..."));
+				searchBox.setHint(Component.literal("Search..."));
 				if(savedSearchText != null && config.iSSettings.getEnabledState()){ 
-					searchBox.setText(savedSearchText);
+					searchBox.setValue(savedSearchText);
 				}
 				
 
-				ButtonWidget clearSearchButton = ButtonWidget.builder(Text.literal("Clear Search"), button -> {
-					searchBox.setText(""); 
+				Button clearSearchButton = Button.builder(Component.literal("Clear Search"), button -> {
+					searchBox.setValue(""); 
 					savedSearchText = "";
 				})
-					.position(w - 120, h - 70)
+					.pos(w - 120, h - 70)
 					.size(100, 20)
 					.build();
 
-				((ScreenAccessor) screen).invokeAddDrawableChild(searchBox);
+				((ScreenAccessor) screen).invokeAddRenderableWidget(searchBox);
 
-				((ScreenAccessor) screen).invokeAddDrawableChild(clearSearchButton);
+				((ScreenAccessor) screen).invokeAddRenderableWidget(clearSearchButton);
 
 				ScreenEvents.remove(screen).register((screenArg) -> {
 					if(searchBox != null) {
-						savedSearchText = searchBox.getText();
+						savedSearchText = searchBox.getValue();
 					}
 				});
 			}

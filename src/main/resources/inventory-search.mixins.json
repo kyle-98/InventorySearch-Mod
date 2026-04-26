@@ -1,11 +1,11 @@
 {
 	"required": true,
 	"package": "com.poggers.mixin",
-	"compatibilityLevel": "JAVA_21",
+	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"HandledScreenMixin",
+		"AbstractContainerScreenMixin",
 		"ScreenAccessor",
-		"HandledScreenAccessor"
+		"AbstractContainerScreenAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1
